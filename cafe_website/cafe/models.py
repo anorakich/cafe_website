@@ -15,6 +15,9 @@ class Kitchen(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('dish', attr=[str(self.id)])
+
 
 class Dish(models.Model):
     name = models.CharField(max_length=20, verbose_name="Названия блюда")
