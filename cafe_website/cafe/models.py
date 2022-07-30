@@ -22,8 +22,8 @@ class Kitchen(models.Model):
 class Dish(models.Model):
     name = models.CharField(max_length=20, verbose_name="Названия блюда")
     description = models.CharField(max_length=200, verbose_name="Описание блюда")
-    image = models.ImageField(upload_to="images", verbose_name="Картинка", null=True, default="default.png")
-    Category = models.ForeignKey('Category', null=True, on_delete=models.SET_NULL)
+    image = models.ImageField(upload_to="images", verbose_name="Картинка", default="default.png")
+    category = models.ForeignKey('Category', null=True, on_delete=models.SET_NULL)
     kitchen = models.ForeignKey('Kitchen', null=True, on_delete=models.SET_NULL)
     price = models.IntegerField(verbose_name="Цена", null=True)
 

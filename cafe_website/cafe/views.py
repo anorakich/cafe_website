@@ -5,9 +5,6 @@ from .models import *
 
 def home(request):
     context = {}
-    context['kitchens'] = Kitchen.objects.all()
-    for kitchen in context['kitchens']:
-        context[kitchen.__str__()] = Dish.objects.filter(kitchen__name=kitchen.__str__())
-
-    return render(request, 'home.html', context=context)
-
+    kitchens = Kitchen.objects.all()
+    context['dishes'] = {kitchen.name: Dish.objects.filter(kitchen__name__exact=kitchen.name) for kitchen in kitchens}
+    return render(request, 'inc/card.html', context=context)

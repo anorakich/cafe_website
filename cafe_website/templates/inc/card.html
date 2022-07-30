@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for kitchen_name, dishes in dishes.items %}
+        {% for dish in dishes %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ dish.image.url }}" class="card-img-top">
+                <div class="card-body">
+                    <ul class="horizontal-list">
+                        <li>{{ dish.name }}</li>
+                        <li>{{ dish.category }}</li>
+                        <li>{{ dish.price }}$</li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
