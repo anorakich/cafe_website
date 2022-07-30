@@ -6,8 +6,10 @@
                 {{ kitchen }}
                 {% for category, dishes in category_dish.items %}
                     <hr>
-                    {{ category }}
-                    <hr>
+                    {% if dishes %}
+                        {{ category }}
+                        <hr>
+                    {% endif %}
                     <div class="container">
                         <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-lg-3 gy-5">
                             {% for dish in dishes %}
