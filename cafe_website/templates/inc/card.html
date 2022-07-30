@@ -5,10 +5,19 @@
             <div class="card" style="width: 18rem;">
                 <img src="{{ dish.image.url }}" class="card-img-top">
                 <div class="card-body">
-                    <ul class="horizontal-list">
+                    <ul class="list-inline even-space">
                         <li>{{ dish.name }}</li>
                         <li>{{ dish.category }}</li>
                         <li>{{ dish.price }}$</li>
+                    </ul>
+                    <ul class="list-inline even-space">
+                        <li><img src="media/hearths/shaped.png" style="width: 2.1rem; height: 2.1rem"></li>
+                        <li>
+                            <form>
+                                <input type="number" id="amount">
+
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
