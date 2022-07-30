@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for kitchen, category_dish in menu.items %}
+        <div class="d-flex justify-content-center flex-row">
+            <div class="text-center border p-4" style="width: 60%">
+                {{ kitchen }}
+                {% for category, dishes in category_dish.items %}
+                    <hr>
+                    {{ category }}
+                    <hr>
+                    <div class="container">
+                        <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-lg-3 gy-5">
+                            {% for dish in dishes %}
+                                <div class="col"> {% include "inc/card.html" %} </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
