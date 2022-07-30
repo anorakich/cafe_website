@@ -1,20 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import *
 
 
 def home(request):
-    return render(request, 'home.html', context={})
+    context = {}
+    context['kitchens'] = Kitchen.objects.all()
+    for kitchen in context['kitchens']:
+        context[kitchen.__str__()] = Dish.objects.filter(kitchen__name=kitchen.__str__())
 
+    return render(request, 'home.html', context=context)
 
-def menuView(request, kicthen_id):
-    dishes = Dish.objects.filter(kicthen__id__exact=kicthen_id)
-    return render(request,)
-
-class menuView(ListView):
-    model = Dish
-    template_name = 'menu.html'
-    context_object_name = 'dishes'
-
-    def get_kicthens(self):
-        return Kitchen.objects.all()

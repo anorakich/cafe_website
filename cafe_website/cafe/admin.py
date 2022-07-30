@@ -3,5 +3,5 @@ from .models import *
 
 admin.site.register(Dish)
 admin.site.register(Kitchen)
-admin.site.register(Ingredient)
+admin.site.register(Category)
 # Register your models here.
